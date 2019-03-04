@@ -27,15 +27,15 @@ client.on('message', (topic, message) => {
 });
 
 // Express
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send(`Distance: ${currentDistance}`);
 });
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
 });
 
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
   console.log('a user connected');
   socket.emit('distance', 123);
   socket.on('buzzer', (topic, message) => {
